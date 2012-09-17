@@ -14,16 +14,22 @@ Content
 
 2.0.1 Setup cross build environment
 To set up the pintos working environment on mac, you should
-  1. Download pintos source code from
-     http://www.stanford.edu/class/cs140/projects/pintos/pintos.tar.gz
+  1. Download pintos source code from github
+     git clone https://github.com/maojie/pintos_mac.git
   2. Download MacPorts from
      http://www.macports.org
   3. Install cross build tools
      sudo port install i386-elf-binutils
      sudo port install i386-elf-gcc
+  4. Create gcc link
+     cd /opt/local/bin
+     sudo ln -s i386-elf-gcc i386-elf-gcc-4.3.2
+  5. Install bochs
+     sudo port install bochs
+  6. Install X on Mac from
+     http://xquartz.macosforge.org
 
 * 3 Building Pintos
-3.0 Building Pintos
 As the next step, build the source code supplied for the first project. First, cd into the "threads" directory. Then, issue the "make" command. This will create a "build" directory under "theads", populate it with a "Makefile" and a few subdirectories, and then build the kernel inside. The entire build should take less than 30 second.
 
 Watch the commands executed during the build. On the Linux machines, the ordinary system tools are used.
@@ -38,3 +44,6 @@ Following the build, the following are the interesting files in the "build" dire
     Memory image for the kernel loader, a small chunk of code written in assembly language that reads the kernel from disk into memory and starts it up. It is exactly 512 bytes long, a size fixed by the PC BIOS.
 
 Subdirectories of "build" contain object files (".o") and dependency files (".d"), both produced by the compiler. The dependency file tell make which source files need to be recompiled when other source or header files are changed.
+
+* 4 Running Pintos
+pintos -- run alarm-single
