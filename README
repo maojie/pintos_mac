@@ -1,4 +1,10 @@
-### Pintos on Mac ###
+### Pintos on Mac###
+Pintos Mac - Pintos on Mac
+
+Release Version: 0.1
+Release Data: 2012/9/17
+Contact: Jeremy Mao(maojie@me.com or yujie.mao@intel.com)
+Homepage: https://github.com/maojie/pintos_mac
 
 Content
 1. Overview
@@ -7,10 +13,16 @@ Content
 4. Running Pintos
 
 * 1 OVERVIEW
+Welcome to Pintos. Pintos is a simple operating system framework for the 80x86 architecture. It supports kernel threads, loading and running user programs, and a file system, but it implements all of these in a very simple way. In the Pintos projects, you and your project team will strengthen its support in all three of these areas. You will also add a virtual memory implementation.
+
+The orignal experimental environment of Pintos is on *nix (Unix and Linux), since MacOSX comes from Unix, I am curious to make Pintos workable on MacOSX. The following instructions can help you setup your experimental environment.
 
 * 2 Getting Started
 
 2.0 Prerequisites
+Before next step, you at least need
+  1. Hardware: Macbook, Macbook Pro, Macbook Air, Mac Mini or iMac
+  2. Software: OS X Mountaion Lion (My environment), maybe workable on Lion and Snow Leopard
 
 2.0.1 Setup cross build environment
 To set up the pintos working environment on mac, you should
@@ -46,4 +58,6 @@ Following the build, the following are the interesting files in the "build" dire
 Subdirectories of "build" contain object files (".o") and dependency files (".d"), both produced by the compiler. The dependency file tell make which source files need to be recompiled when other source or header files are changed.
 
 * 4 Running Pintos
+cd threads/build
 pintos -- run alarm-single
+(TO BE CONTINUED)
