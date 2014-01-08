@@ -1,6 +1,14 @@
 ## Pintos on Mac ##
 Pintos Mac - Pintos on Mac
 
+Contact: 
+
+Jeremy Mao(maojie[AT]me.com or yujie.mao[AT]intel.com)
+
+Jin Suk Park(jinmel[AT]postech.ac.kr)
+
+Homepage: https://github.com/maojie/pintos_mac
+
 ## Overview ##
 Pintos initial code to successfully compile and simulate on Mac using QEMU i386 simulator. 
 For more documentation, refer to [Pintos Documentation Homepage](http://www.scs.stanford.edu/12au-cs140/pintos/pintos.html)
