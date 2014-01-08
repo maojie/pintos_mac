@@ -19,11 +19,14 @@ For more documentation, refer to [Pintos Documentation Homepage](http://www.scs.
 
 ## Changes on pintos source ##
  * devices/shutdown.c:shutdown_power_off
-   Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 to for more information.
+
+   Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 for more information.
  * Make.config 
+
    Set compiler to i386-elf-gcc
  * threads/Make.vars
-   SIMULATOR=--qemu to force qemu on make check. Bochs doesn't really work well in Mac and QEMU is much faster 
+
+   SIMULATOR=--qemu to force qemu on make check.
  
  
 
