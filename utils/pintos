@@ -851,7 +851,7 @@ sub xsystem {
 	alarm (0);
 	&$cleanup ();
 
-	if (WIFSIGNALED ($?) && WTERMSIG ($?) == SIGVTALRM ()) {
+	if (WIFSIGNALED ($?) && WTERMSIG ($?) == SIGVTALRM2 ()) {
 	    seek (STDOUT, 0, 2);
 	    print "\nTIMEOUT after $timeout seconds of host CPU time\n";
 	    exit 0;
@@ -922,7 +922,7 @@ sub exec_setitimer {
     exit (1);
 }
 
-sub SIGVTALRM {
+sub SIGVTALRM2 {
     use Config;
     my $i = 0;
     foreach my $name (split(' ', $Config{sig_name})) {
