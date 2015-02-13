@@ -1,7 +1,7 @@
 ## Pintos on Mac ##
 Pintos Mac - Pintos on Mac
 
-Contact: 
+Contact:
 
 Jeremy Mao(maojie[AT]me.com or yujie.mao[AT]intel.com)
 
@@ -21,9 +21,10 @@ For more documentation, refer to [Pintos Documentation Homepage](http://www.scs.
 1. Install qemu
  * brew install qemu
 2. Install i386-elf-gcc and i386-elf-gdb cross compiler toolchain 
- * brew tap jinmel/gcc_cross_compilers
- * brew install jinmel/gcc_cross_compilers/i386-elf-gcc
- * brew install jinmel/gcc_cross_compilers/i386-elf-gdb
+ * brew install homebrew/versions/gcc49
+ * brew tap altkatz/gcc_cross_compilers
+ * brew install altkatz/gcc_cross_compilers/i386-elf-gcc
+ * brew install altkatz/gcc_cross_compilers/i386-elf-gdb
 
 ## Changes on pintos source ##
  * devices/shutdown.c:shutdown_power_off
