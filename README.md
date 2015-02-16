@@ -18,10 +18,10 @@ For more documentation, refer to [Pintos Documentation Homepage](http://www.scs.
 2. [Homebrew](http://brew.sh/)
 
 ## Setting up your environment ##
-1. Install QEMU 1.6.1. Pintos doesn't shutdown properly on later versions of QEMU, causing tests to fail. If QEMU is already installed, you may need to run `brew unlink qemu` first.
+1. Install QEMU. Make sure you are using QEMU 2.0.0 or greater or Pintos may not shut down correctly.
 
 ```
-brew install https://raw.githubusercontent.com/Homebrew/homebrew/234a17f37faaedc007ceb2bae856edaaff3dc08f/Library/Formula/qemu.rb
+brew install qemu
 ```
 
 2. Install i386-elf-gcc and i386-elf-gdb cross compiler toolchain.
@@ -35,7 +35,7 @@ brew install altkatz/gcc_cross_compilers/i386-elf-gdb
 ## Changes to pintos source ##
 * `devices/shutdown.c:shutdown_power_off`
 
-	* Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 for more information. This does not work in versions of QEMU later than 1.6.1.
+	* Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 for more information.
 
 * `Make.config `
 
