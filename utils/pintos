@@ -100,7 +100,7 @@ sub parse_command_line {
 	  or exit 1;
     }
 
-    $sim = "bochs" if !defined $sim;
+    $sim = "qemu" if !defined $sim;
     $debug = "none" if !defined $debug;
     $vga = exists ($ENV{DISPLAY}) ? "window" : "none" if !defined $vga;
 
@@ -126,8 +126,8 @@ Usage: pintos [OPTION...] -- [ARGUMENT...]
 where each OPTION is one of the following options
   and each ARGUMENT is passed to Pintos kernel verbatim.
 Simulator selection:
-  --bochs                  (default) Use Bochs as simulator
-  --qemu                   Use QEMU as simulator
+  --bochs                  Use Bochs as simulator
+  --qemu                   (default) Use QEMU as simulator
   --player                 Use VMware Player as simulator
 Debugger selection:
   --no-debug               (default) No debugger
@@ -851,7 +851,7 @@ sub xsystem {
 	alarm (0);
 	&$cleanup ();
 
-	if (WIFSIGNALED ($?) && WTERMSIG ($?) == SIGVTALRM ()) {
+	if (WIFSIGNALED ($?) && WTERMSIG ($?) == SIGVTALRM2 ()) {
 	    seek (STDOUT, 0, 2);
 	    print "\nTIMEOUT after $timeout seconds of host CPU time\n";
 	    exit 0;
@@ -922,7 +922,7 @@ sub exec_setitimer {
     exit (1);
 }
 
-sub SIGVTALRM {
+sub SIGVTALRM2 {
     use Config;
     my $i = 0;
     foreach my $name (split(' ', $Config{sig_name})) {

@@ -1,7 +1,7 @@
 ## Pintos on Mac ##
 Pintos Mac - Pintos on Mac
 
-Contact: 
+Contact:
 
 Jeremy Mao(maojie[AT]me.com or yujie.mao[AT]intel.com)
 
@@ -14,29 +14,33 @@ Pintos initial code to successfully compile and simulate on Mac using QEMU i386 
 For more documentation, refer to [Pintos Documentation Homepage](http://www.scs.stanford.edu/12au-cs140/pintos/pintos.html)
 
 ## Prerequisites ##
-1. Mac OS X Mavericks 
+1. Mac OS X Mavericks or higher
 2. [Homebrew](http://brew.sh/)
 
 ## Setting up your environment ##
-1. Install qemu
- * brew install qemu
-2. Install i386-elf-gcc and i386-elf-gdb cross compiler toolchain 
- * brew tap jinmel/gcc_cross_compilers
- * brew install jinmel/gcc_cross_compilers/i386-elf-gcc
- * brew install jinmel/gcc_cross_compilers/i386-elf-gdb
+1. Install QEMU. Make sure you are using QEMU 2.0.0 or greater or Pintos may not shut down correctly.
 
-## Changes on pintos source ##
- * devices/shutdown.c:shutdown_power_off
+```
+brew install qemu
+```
 
-   Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 for more information.
- * Make.config 
+2. Install i386-elf-gcc and i386-elf-gdb cross compiler toolchain.
 
-   Set compiler to i386-elf-gcc
- * threads/Make.vars
+```
+brew install homebrew/versions/gcc49
+brew install altkatz/gcc_cross_compilers/i386-elf-gcc
+brew install altkatz/gcc_cross_compilers/i386-elf-gdb
+```
 
-   SIMULATOR=--qemu to force qemu on make check.
- 
- 
+## Changes to pintos source ##
+* `devices/shutdown.c:shutdown_power_off`
 
+	* Added ACPI shutdown sequence to work with higher versions of QEMU simulator. Refer to http://forum.osdev.org/viewtopic.php?t=16990 for more information.
 
+* `Make.config `
 
+	* Set compiler to i386-elf-gcc.
+
+* `threads/Make.vars`
+
+	* Set `SIMULATOR=--qemu` to force qemu on `make check`.
