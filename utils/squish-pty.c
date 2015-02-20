@@ -7,7 +7,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stropts.h>
 #include <sys/ioctl.h>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -92,7 +91,7 @@ handle_error (ssize_t retval, int *fd, bool fd_is_pty, const char *call)
               return false;
             }
           else
-            fail_io (call); 
+            fail_io ("%s", call); 
         }
       else
         return true;
@@ -106,7 +105,7 @@ handle_error (ssize_t retval, int *fd, bool fd_is_pty, const char *call)
           return true;
         }
       else
-        fail_io (call);
+        fail_io ("%s", call);
     }
 }
 
@@ -288,13 +287,15 @@ main (int argc __attribute__ ((unused)), char *argv[])
     fail_io ("open \"%s\"", name);
 
   /* System V implementations need STREAMS configuration for the
-     slave. */
+     slave. This is commented out as OS X doesn't provide stropts.h.
+
   if (isastream (slave))
     {
       if (ioctl (slave, I_PUSH, "ptem") < 0
           || ioctl (slave, I_PUSH, "ldterm") < 0)
         fail_io ("ioctl");
     }
+  */
 
   /* Arrange to get notified when a child dies, by writing a byte
      to a pipe fd.  We really want to use pselect() and
